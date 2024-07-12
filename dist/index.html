@@ -7,6 +7,23 @@
 
 </head>
 <body>
+    <style>
+    /* CSS styles here */
+    @media screen and (orientation: portrait) {
+      .landscape-only {
+        display: none;
+      }
+    }
+  </style>
+    <script>
+    // JavaScript code here
+    window.addEventListener("orientationchange", function() {
+      var orientation = window.screen.orientation.angle;
+      if (orientation === 0 || orientation === 180) {
+        alert("Please rotate your device to landscape mode to view this website.");
+      }
+    });
+  </script>
 <!-- partial:index.partial.html -->
 <div class="scotch-container">
   <nav>
