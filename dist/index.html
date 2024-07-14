@@ -8,47 +8,23 @@
 </head>
 <body>
     <style>
-        .landscape-instructions {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.9);
-      z-index: 9999;
-    }
-    .landscape-instructions h1 {
-      margin-top: 30vh;
-      font-size: 2em;
-    }
+        /* Hide content in portrait mode */
+@media screen and (orientation: portrait) {
+  .landscape-only {
+    display: none;
+  }
+}
 
-    @media screen and (orientation: portrait) {
-      .landscape-instructions {
-        display: block;
-      }
-    }
   </style>
-    <script>
-    <script>
-    // Check orientation and display instructions if in portrait mode
-    function checkOrientation() {
-      var orientation = window.screen.orientation.angle;
-      if (orientation === 0 || orientation === 180) {
-        document.querySelector(".landscape-instructions").style.display = "block";
-      } else {
-        document.querySelector(".landscape-instructions").style.display = "none";
-      }
-    }
+    // JavaScript to enforce landscape orientation
+window.addEventListener("orientationchange", function() {
+  var orientation = window.screen.orientation.angle;
+  if (orientation === 0 || orientation === 180) {
+    // Portrait mode
+    alert("Please rotate your device to landscape mode to view this website.");
+  }
+});
 
-    // Initial check
-    checkOrientation();
-
-    // Event listener for orientation change
-    window.addEventListener("orientationchange", function() {
-      checkOrientation();
-    });
-  </script>
   </script>
 <!-- partial:index.partial.html -->
    <div class="landscape-instructions">
